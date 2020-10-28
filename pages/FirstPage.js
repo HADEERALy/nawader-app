@@ -24,6 +24,7 @@ import {
   configureFonts,
   DefaultTheme,
   DarkTheme,
+  RadioButton 
 } from 'react-native-paper';
 // class Background extends Component {
 
@@ -51,6 +52,7 @@ export default class FirstPage extends React.Component {
     radioButton:'value1',
     checked1:false,
     checked2:false,
+    value: null
 }
   }
   render() {
@@ -229,7 +231,7 @@ style={styles.inputText}
 <Text style={{fontSize:calcWidth(17),marginRight:20,marginTop:10,color:Colors.lightGray}}>السعر:</Text>
    {/* <View style={{justifyContent:'flex-end'}}>
             <CheckBox 
-                title='value1'
+                title='اهلا'
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
                 checkedColor={Colors.DarkGray}
@@ -237,7 +239,7 @@ style={styles.inputText}
                 onPress={() => this.setState({radioButton: 'value1'})}
                 ></CheckBox>
             <CheckBox 
-                title='value2'
+                title='على'
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
                 checkedColor={Colors.DarkGray}
@@ -245,7 +247,7 @@ style={styles.inputText}
                 onPress={() => this.setState({radioButton: 'value2'})}
                 ></CheckBox> 
             <CheckBox 
-                title='value3'
+                title='عثمان'
                 checkedIcon='dot-circle-o'
                 checkedColor={Colors.DarkGray}
                 uncheckedIcon='circle-o'
@@ -256,40 +258,49 @@ style={styles.inputText}
 
         </View> */}
 
-           <View style={{flexDirection:'row',flex:1,marginLeft:70}}>
-             <View style={{flex:1}}>
-<ListItem
-title='قابل للتفاوض'
-titleStyle={styles.checkText1}
-checkBox={{ checked: this.state.checked1 }}
-onPress={() => this.setState({ checked1: !this.state.checked1 })}
-/>
-</View>
+
+
+<View style={{flexDirection:'row',flex:1,marginLeft:50,flex:1}}>
+    <View style={{flex:1}}>
+    <ListItem
+    title='قابل للتفاوض'
+    titleStyle={styles.checkText1}
+    checkBox={{ checked: this.state.checked1 }}
+    onPress={() => this.setState({ checked1: !this.state.checked1 })}
+    />
+    </View>
     <Text style={{marginTop:15,marginRight:10,color:Colors.gray}}>ريال</Text>
-    <View style={{marginRight:5,marginTop:10,width:70,height:30,borderWidth:1,borderColor:Colors.lightGray,borderRadius:5,justifyContent:'flex-end'}}>
-      
+    <View style={{marginRight:5,marginTop:10,width:60,height:30,borderWidth:1,borderColor:Colors.lightGray,borderRadius:5,justifyContent:'flex-end'}}>
       <TextInput  />
       </View>
-                    <View style={{marginTop:5,marginRight:20,marginTop:15,width:20,height:20,borderWidth:1,borderColor:Colors.lightGray,borderRadius:10,justifyContent:'flex-end'}}>
-                    <TextInput  />
-                    </View>
+
+      <View style={{marginRight:20,marginTop:15,marginLeft:5}}>
+      <TouchableOpacity style={styles.circle}
+       onPress={() => this.setState({ value: 'value1' })}>
+      { this.state.value === 'value1' && (<View style={styles.checkedCircle} />) }
+      </TouchableOpacity>
+      </View>
                  
-                    </View>
-
+</View>
         <View style={{flexDirection:'row',flex:1,marginLeft:262}}>
-    <Text style={{marginRight:5,color:Colors.gray}}>على السوم</Text>
+      <Text style={{marginRight:5,color:Colors.gray}}>على السوم</Text>
 
-                    <View style={{width:20,height:20,borderWidth:1,borderColor:Colors.lightGray,borderRadius:10,justifyContent:'flex-end'}}>
-      
-                    <TextInput  />
+      <View style={{justifyContent:'flex-end'}}>
+      <TouchableOpacity style={styles.circle}
+      onPress={() => this.setState({ value: 'value2' })}>
+      { this.state.value === 'value2' && (<View style={styles.checkedCircle} />) }
+     </TouchableOpacity>
+                       </View>
                     </View>
-                    </View>
+                    
                     <View style={{flexDirection:'row',flex:1,marginTop:20,marginLeft:265}}>
     <Text style={{marginRight:5,color:Colors.gray}}>غير محدد</Text>
 
-                    <View style={{width:20,height:20,borderColor:Colors.lightGray,borderWidth:1,borderRadius:10,justifyContent:'flex-end'}}>
-      
-                    <TextInput  />
+      <View style={{justifyContent:'flex-end'}}>
+    <TouchableOpacity style={styles.circle}
+      onPress={() => this.setState({ value: 'value3' })}>
+      { this.state.value === 'value3' && (<View style={styles.checkedCircle} />) }
+   </TouchableOpacity>
                     </View>
                     </View>
 <ListItem
@@ -301,6 +312,9 @@ onPress={() => this.setState({ checked2: !this.state.checked2 })}
         <TouchableOpacity style={styles.TouchableEdit}  >
   <Text style={{ fontSize: calcWidth(20), color: "#fff", fontFamily: 'Montserrat-Medium' }}>اضف اعلانك</Text>
    </TouchableOpacity>
+
+
+ 
 </ScrollView>
 </SafeAreaView>
     );
@@ -509,5 +523,26 @@ InputContain:{
 inputText:{
   fontSize:calcWidth(14),
   marginRight:20
+},
+buttonContainer: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: 30,
+},
+circle: {
+  height: 21,
+  width: 21,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: '#ACACAC',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+checkedCircle: {
+  width: 15,
+  height: 15,
+  borderRadius: 7,
+  backgroundColor:Colors.DarkGray,
 },
 });
