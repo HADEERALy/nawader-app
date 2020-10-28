@@ -71,7 +71,7 @@ style:{
 }
 );
 const SwitchNavigator = createSwitchNavigator({
-  "before-login": TabNavigator,
+  "after-splash": TabNavigator,
   splash: splash,
 
 

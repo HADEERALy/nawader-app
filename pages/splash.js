@@ -18,7 +18,7 @@ export default class splash extends Component {
         setTimeout(() => {
 
                 // console.log("id in setTimeOut is : ", auth().currentUser.uid)
-                this.props.navigation.navigate("before-login")
+                this.props.navigation.navigate("after-splash")
            
         },
             2000
