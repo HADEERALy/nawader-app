@@ -2,13 +2,15 @@
 import React from 'react';
 import {StyleSheet , Text , View , ScrollView }  from 'react-native';
 import 'react-native-gesture-handler';
-import {createAppContainer} from 'react-navigation';
+import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import Colors from './assets/Colors';
 
 import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/SecondPage';
 import Massages from './pages/Massages';
 import Posts from './pages/Posts';
+import splash from './pages/splash';
 
 // import DailySales from '../app/components/DailySales';
 // import AllStoreSales from '../app/components/AllStoreSales';
@@ -37,7 +39,7 @@ const TabNavigator = createBottomTabNavigator(
       let IconComponent = Ionicons;
       let iconName;
       if (routeName === 'الرئيسية') {
-        iconName = `home`;
+        // iconName = `home`;
       }
       else if(routeName === 'حسابي') {
         iconName = `user`;
@@ -49,22 +51,37 @@ const TabNavigator = createBottomTabNavigator(
         iconName = `copy1`;
       }
       // You can return any component that you like here!
-      return <IconComponent name={iconName} size={25} color={tintColor} />;
+      return <IconComponent name={iconName} size={25} color={Colors.lightGray} />;
     },
     
   }),
   tabBarOptions: {
 
-    activeTintColor: 'white',
-    inactiveTintColor: '#000',
-    activeBackgroundColor : '#7092be',
-    inactiveBackgroundColor :'#ddd',
+    activeTintColor: Colors.theme,
+    inactiveTintColor: Colors.lightGray,
+    activeBackgroundColor : '#ddd',
+    inactiveBackgroundColor :'white',
+    
+style:{
+ 
+  // top:5,
 
+}
   },
 }
 );
+const SwitchNavigator = createSwitchNavigator({
+  "before-login": TabNavigator,
+  splash: splash,
 
-export default createAppContainer(TabNavigator);
+
+},
+  {
+    initialRouteName: 'splash',
+    headerMode: 'none'
+  }
+)
+export default createAppContainer(SwitchNavigator);
 
 
 

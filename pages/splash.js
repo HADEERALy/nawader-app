@@ -3,9 +3,8 @@ import { Image, StyleSheet, View } from 'react-native';
 // import auth from '@react-native-firebase/auth';
 // import database from '@react-native-firebase/database';
 import Colors from '../assets/Colors';
-import home from '../screens/home';
+import FirstPage from '../pages/FirstPage';
 // import { sendPushNotification } from "../PushNotification"
-
 
 
 
@@ -19,7 +18,7 @@ export default class splash extends Component {
         setTimeout(() => {
 
                 // console.log("id in setTimeOut is : ", auth().currentUser.uid)
-                this.props.navigation.navigate("home")
+                this.props.navigation.navigate("before-login")
            
         },
             2000

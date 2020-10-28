@@ -148,7 +148,7 @@ style={{ height: calcHeight(30.5), width: calcWidth(45.5),marginRight:30}}
 
 </View>
 <Image
-    source={require('../assets/imgs/goat2.jpg')}
+    source={require('../assets/imgs/sheeps.jpg')}
     style={{ height: calcHeight(102.5), width: calcWidth(100.5) ,borderTopRightRadius: 10,
         borderBottomRightRadius: 10,}}
 />
@@ -209,7 +209,7 @@ style={{ height: calcHeight(30.5), width: calcWidth(45.5),marginRight:30}}
 
 </View>
 <Image
-    source={require('../assets/imgs/goat2.jpg')}
+    source={require('../assets/imgs/Goat_face.jpg')}
     style={{ height: calcHeight(102.5), width: calcWidth(100.5) ,borderTopRightRadius: 10,
         borderBottomRightRadius: 10,}}
 />
